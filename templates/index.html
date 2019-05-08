@@ -1,0 +1,59 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}My task list{% endblock %}
+
+{% block content %}
+    <div class="container">
+
+        <h1>Todo List Manager</h1>
+
+
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Task</th>
+                <th>Urgent</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody id="tasklistbody">
+            <tr>
+                <td>Task one</td>
+                <td>Yes</td>
+                <td><a href="#"><img class="actionicon" src="https://img.icons8.com/windows/32/000000/delete/2266EE"></a>
+                    <a href="#"><img class="actionicon" src="https://img.icons8.com/windows/32/000000/edit/2266EE"></a></td>
+            </tr>
+            <tr>
+                <td>Task two</td>
+                <td>Yes</td>
+                <td><a href="#"><img class="actionicon" src="https://img.icons8.com/windows/32/000000/delete/2266EE"></a>
+                    <a href="#"><img class="actionicon" src="https://img.icons8.com/windows/32/000000/edit/2266EE"></a></td>
+            </tr>
+            </tbody>
+            <tbody>
+            <tr><noform >
+                <td><input class="form-control" type="text" size="80" name="tasktext"/></td>
+                <td>
+                    <div class="btn-group btn-toggle">
+                        <button id="taskurgent" class="btn btn-sm btn-default">Yes</button>
+                        <button class="btn btn-sm btn-primary active">No</button>
+                    </div>
+                </td>
+                <td><a href="" id="newtask"><img class="actionicon" src="https://img.icons8.com/windows/32/000000/plus/2266EE"></a></td>
+            </noform></tr>
+            </tbody>
+        </table>
+
+
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script src="{{ url_for('static', filename="todolist.js") }}"></script>
+{% endblock %}
+
+{% block styles %}
+    {{ super() }}
+    <link href="{{ url_for('static', filename="todolist.css") }}" rel="stylesheet">
+{% endblock %}
